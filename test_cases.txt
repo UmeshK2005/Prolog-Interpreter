@@ -1,0 +1,113 @@
+1.
+
+program:
+
+
+hastype(G,add(intT(Z),intT(Y)),intT).
+hastype(G,add(intT(Z),varT(X)),intT):-hastype(G,varT(X),intT).
+hastype(G,add(varT(X),intT(Z)),intT):-hastype(G,varT(X),intT).
+hastype(G,add(varT(X),varT(Y)),intT):-hastype(G,varT(X),intT),hastype(G,varT(Y),intT).
+hastype(G,add(X,Y),intT):-hastype(G,X,intT),hastype(G,Y,intT).
+
+
+queries: 
+hastype(G,add(intT(5),intT(6)),E),hastype(G,add(intT(6),intT(6)),E).
+
+
+2.
+
+program :
+fact(0, 1).
+fact(X, Y) :-X > 0,Z = X - 1,fact(Z, W),Y =  W * X.
+
+queries:
+fact(5,X).
+
+
+3.
+
+program :
+
+
+parent(john,mary).
+parent(mary,jos).
+grandparent(A,C):-parent(A,B),parent(B,C).
+
+queries:
+grandparent(john,X),parent(mary,jos).
+grandparent(mary,X).
+
+4. 
+program:
+hastype(G,mul(intT(Z),intT(Y)),intT).
+hastype(G,mul(intT(Z),varT(X)),intT):-hastype(G,varT(X),intT).
+hastype(G,mul(varT(X),intT(Z)),intT):-hastype(G,varT(X),intT).
+hastype(G,mul(varT(X),varT(Y)),intT):-hastype(G,varT(X),intT),hastype(G,varT(Y),intT).
+hastype(G,mul(X,Y),intT):-hastype(G,X,intT),hastype(G,Y,intT).
+queries:
+
+hastype(G,mul(intT(5),intT(8)),E).
+
+
+5. 
+
+
+program:
+hastype(G,div(intT(Z),intT(Y)),intT).
+hastype(G,div(intT(Z),varT(X)),intT):-hastype(G,varT(X),intT).
+hastype(G,div(varT(X),intT(Z)),intT):-hastype(G,varT(X),intT).
+hastype(G,div(varT(X),varT(Y)),intT):-hastype(G,varT(X),intT),hastype(G,varT(Y),intT).
+hastype(G,div(X,Y),intT):-hastype(G,X,intT),hastype(G,Y,intT).
+
+query:
+
+hastype(G,div(intT(5),intT(8)),E).
+hastype(G,div(X,Y),E).
+
+
+6. 
+program :
+mem(X,Y).
+
+query:
+mem(X,Y).
+
+
+
+7.
+program:
+brothers(p,q,r).
+
+query:
+brothers(p,Q,R).
+
+
+
+
+
+
+8.
+program:
+parent(john, mary).
+parent(john, peter).
+parent(sue, mary).
+parent(sue, peter).
+
+male(john).
+male(peter).
+female(mary).
+female(sue).
+mother(Mother, Child) :-
+    parent(Mother, Child),
+    female(Mother).
+
+
+    
+    
+query:
+	mother(sue,mary).
+	mother(sue,X).
+
+
+
+

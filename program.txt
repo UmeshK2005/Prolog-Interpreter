@@ -1,0 +1,14 @@
+parent(john, mary).
+parent(john, peter).
+parent(sue, mary).
+parent(sue, peter).
+
+male(john).
+male(peter).
+female(mary).
+female(sue).
+mother(Mother, Child) :-
+    parent(Mother, Child),
+    female(Mother).
+
+
